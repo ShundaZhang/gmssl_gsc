@@ -3,3 +3,9 @@
 3. openssl genrsa -3 -out enclave-key.pem 3072
 4. ./gsc sign-image gmssl-docker enclave-key.pem
 5. docker run --device=/dev/sgx_enclave -v /var/run/aesmd/aesm.socket:/var/run/aesmd/aesm.socket -it gsc-gmssl-docker:latest
+
+#docker push and pull
+1. docker login
+2. docker tag docker tag gsc-gmssl-docker:latest zsdocker1024/gsc-gmssl-docker:latest
+3. docker push zsdocker1024/gsc-gmssl-docker
+4. docker pull zsdocker1024/gsc-gmssl-docker
