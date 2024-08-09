@@ -1,0 +1,5 @@
+1. ./gsc build --insecure-args gmssl-docker test/generic.manifest
+2. openssl genrsa -3 -out enclave-key.pem 3072
+3. cp config.yaml.template config.yaml
+4.  ./gsc sign-image gmssl-docker:latest enclave-key.pem
+5. docker run --device=/dev/sgx_enclave -v /var/run/aesmd/aesm.socket:/var/run/aesmd/aesm.socket -it gsc-sqlcipher-docker:latest
